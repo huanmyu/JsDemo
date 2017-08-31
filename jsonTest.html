@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>null和undefined</title>
+<style type="text/css"></style>
+<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	if(0){
+		console.log("0被执行了!");
+	}
+	if(1){
+		console.log("1被执行了!");
+	}
+	if(!null){
+		console.log("null被执行了!");
+	}
+	if(!undefined){
+		console.log("undefined被执行了!");
+	}
+	console.log("null转换成数子后：",Number(null));
+	console.log("undefined转换成数子后：",Number(undefined));
+	console.log("------null的使用--------");
+	//null表示"没有对象"，即该处不应该有值
+	//(1) 作为函数的参数，表示该函数的参数不是对象。
+	 getAge(null);
+    //(2) 作为对象原型链的终点。
+    console.log("作为对象原型链的终点获取到的结果：",Object.getPrototypeOf(Object.prototype));
+    //undefined表示"缺少值"，就是此处应该有一个值，但是还没有定义
+	console.log("------undefined的使用--------");
+    //(1)变量被声明了，但没有赋值时，就等于undefined。
+    var address;
+    console.log("地址是:",address);
+    //(2) 调用函数时，应该提供的参数没有提供，该参数等于undefined。
+    getName();
+    //(3)对象没有赋值的属性，该属性的值为undefine
+    student={name:"zhangsan"};
+    console.log("学生是",student.name,"的住址是",student.address);
+    //(4)函数没有返回值时，默认返回undefined。
+    console.log("获取到的性别是:",getSex());
+    console.log("------null和undefined的类型区别-----")
+    //null的数据类型是: object
+    console.log("null的数据类型是:",typeof null);
+    //null的数据类型是: undefined
+    console.log("null的数据类型是:",typeof undefined);
+    //null==undefinde: true
+    console.log("null==undefinde:", null==undefined);
+   //null===undefinde: false
+    console.log("null===undefinde:", null===undefined);
+     var obj=new String("0");
+     //obj===null: false
+    console.log("obj===null:",  obj===null);
+     //null==null: true
+    console.log("null==null:",  null==null);
+   // null===null: true
+    console.log("null===null:",  null===null);
+     //obj===undefined: false
+    console.log("obj===undefined:",obj===undefined);
+   //NaN==NaN的结果是: false
+   console.log("NaN==NaN的结果是:",NaN==NaN);
+   //NaN===NaN的结果是: false
+   console.log("NaN===NaN的结果是:",NaN===NaN);
+   //Objcte.is()会对-0，+0和NaN做特殊处理
+  //Object.is(NaN,NaN)的结果是: true
+   console.log("Object.is(NaN,NaN)的结果是:",Object.is(NaN,NaN));
+  //-0==0的结果是 true
+  console.log("-0==0的结果是",-0==0);
+  //-0===0的结果是 true
+  console.log("-0===0的结果是",-0===0);
+  //Object.is(-0,0)的结果是 false
+  console.log("Object.is(-0,0)的结果是",Object.is(-0,0));
+  console.log("Math.min(-0,0)的结果是：",Math.min(-0,0));
+});
+function getName(name){
+	console.log("name=",name);
+}
+function getAge(age){
+	console.log("age=",age);
+}
+function getSex(){
+	return;
+}
+</script>
+</head>
+
+<body>
+<h3></h3>
+</body>
+</html>
